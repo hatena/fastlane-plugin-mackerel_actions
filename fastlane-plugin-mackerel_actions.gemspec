@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.email         = 'muta.yutaro@gmail.com'
 
   spec.summary       = 'fastlane actions for Mackerel'
-  # spec.homepage      = "https://github.com/<GITHUB_USERNAME>/fastlane-plugin-mackerel_actions"
+  spec.homepage      = "https://github.com/yutailang0119/fastlane-plugin-mackerel_actions"
   spec.license       = "MIT"
 
   spec.files         = Dir["lib/**/*"] + %w(README.md LICENSE)
