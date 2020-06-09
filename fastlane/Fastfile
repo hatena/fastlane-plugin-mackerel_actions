@@ -1,3 +1,19 @@
 lane :test do
-  mackerel_actions
+  start_time = Time.now
+
+  post_xcresult_result = mackerel_post_xcresult(
+    api_key: ENV["MACKEREL_API_KEY"],
+    service_name: ENV["MACKEREL_SERVICE_NAME"],
+    metric_name_prefix: "xcresult",
+    file: ENV["XCRESULT_FILE_PATH"]
+  )
+  UI.message(post_xcresult_result)
+
+  post_duration_result = mackerel_post_duration(
+    api_key: ENV["MACKEREL_API_KEY"],
+    service_name: ENV["MACKEREL_SERVICE_NAME"],
+    metric_name: "duration.#{ENV['FASTLANE_LANE_NAME']}",
+    start_time: start_time
+  )
+  UI.message(post_duration_result)
 end
