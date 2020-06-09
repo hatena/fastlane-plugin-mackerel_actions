@@ -91,6 +91,23 @@ module Fastlane
         "none"
       end
 
+      def example_code
+        [
+          'result = mackerel_post_duration(
+            api_key: ENV["MACKEREL_API_KEY"],
+            service_name: ENV["MACKEREL_SERVICE_NAME"],
+            metric_name: "duration.#{ENV["FASTLANE_LANE_NAME"]}",
+            start_time: Time.now
+          )',
+          'MackerelPostDurationAction.run(
+            api_key: ENV["MACKEREL_API_KEY"],
+            service_name: ENV["MACKEREL_SERVICE_NAME"],
+            metric_name: "duration.#{ENV["FASTLANE_LANE_NAME"]}",
+            start_time: Time.now
+          )'
+        ]
+      end
+
       def self.authors
         ["yutailang0119"]
       end

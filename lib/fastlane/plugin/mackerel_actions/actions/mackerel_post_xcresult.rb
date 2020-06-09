@@ -95,6 +95,23 @@ module Fastlane
         "none"
       end
 
+      def example_code
+        [
+          'result = mackerel_post_xcresult(
+            api_key: ENV["MACKEREL_API_KEY"],
+            service_name: ENV["MACKEREL_SERVICE_NAME"],
+            metric_name_prefix: "xcresult",
+            file: "build/Logs/Test/Xxxxxx.xcresult"
+          )',
+          'MackerelPostXcresultAction.run(
+            api_key: ENV["MACKEREL_API_KEY"],
+            service_name: ENV["MACKEREL_SERVICE_NAME"],
+            metric_name_prefix: "xcresult",
+            file: "build/Logs/Test/Xxxxxx.xcresult"
+          )'
+        ]
+      end
+
       def self.authors
         ["yutailang0119"]
       end
