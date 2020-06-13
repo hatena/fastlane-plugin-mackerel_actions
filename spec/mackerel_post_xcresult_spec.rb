@@ -5,15 +5,15 @@ describe Fastlane::Helper::MackerelPostXcresultHelper do
   before(:all) do
     require 'scan'
     options = FastlaneCore::Configuration.create(Scan::Options.available_options, {
-      project: 'examples/SampleApp/SampleApp.xcodeproj',
-      scheme: 'SampleApp',
-      derived_data_path: 'examples/SampleApp/build',
-      output_directory: 'examples/SampleApp/fastlane/test_output'
+      project: 'examples/app/app.xcodeproj',
+      scheme: 'app',
+      derived_data_path: 'examples/app/build',
+      output_directory: 'examples/app/fastlane/test_output'
     })
     manager = Scan::Manager.new
     manager.work(options)
 
-    @file = Dir["#{ENV['PWD']}/examples/SampleApp/build/**/Logs/Test/*.xcresult"].last
+    @file = Dir["#{ENV['PWD']}/examples/app/build/**/Logs/Test/*.xcresult"].last
   end
 
   describe '#json_xcresult_report' do

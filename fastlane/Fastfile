@@ -14,13 +14,13 @@ end
 
 lane :post_xcresult do
   scan(
-    project: 'examples/SampleApp/SampleApp.xcodeproj',
-    scheme: 'SampleApp',
-    derived_data_path: 'examples/SampleApp/build',
-    output_directory: 'examples/SampleApp/fastlane/test_output'
+    project: 'examples/app/app.xcodeproj',
+    scheme: 'app',
+    derived_data_path: 'examples/app/build',
+    output_directory: 'examples/app/fastlane/test_output'
   )
 
-  file = Dir["#{ENV['PWD']}/SampleApp/build/**/Logs/Test/*.xcresult"].last
+  file = Dir["#{ENV['PWD']}/app/build/**/Logs/Test/*.xcresult"].last
   UI.message(file)
 
   result = mackerel_post_xcresult(
