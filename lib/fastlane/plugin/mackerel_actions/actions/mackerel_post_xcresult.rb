@@ -9,7 +9,10 @@ module Fastlane
     class MackerelPostXcresultAction < Action
       def self.run(params)
         require 'fastlane/plugin/mackerel_api'
-        summarized_report = Helper::MackerelPostXcresultHelper.summarize_xcresult_report(params[:file])
+        require 'fastlane/plugin/xcresult_actions'
+        summarized_report = SummarizeXcresultReportAction.run(
+          file: params[:file]
+        )
         now = Time.new.to_i
         body = summarized_report.map do |row|
           {

@@ -22,6 +22,7 @@ Gem::Specification.new do |spec|
   # since this would cause a circular dependency
 
   spec.add_dependency('fastlane-plugin-mackerel_api')
+  spec.add_dependency('fastlane-plugin-xcresult_actions')
 
   spec.add_development_dependency('pry')
   spec.add_development_dependency('bundler')

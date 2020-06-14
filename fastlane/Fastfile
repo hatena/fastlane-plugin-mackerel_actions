@@ -13,14 +13,8 @@ lane :post_duration do
 end
 
 lane :post_xcresult do
-  scan(
-    project: 'examples/app/app.xcodeproj',
-    scheme: 'app',
-    derived_data_path: 'examples/app/build',
-    output_directory: 'examples/app/fastlane/test_output'
-  )
-
-  file = Dir["#{ENV['PWD']}/app/build/**/Logs/Test/*.xcresult"].last
+  UI.user_error!('Please setting the DERIVED_DATA_PATH environment variable') if ENV['DERIVED_DATA_PATH'].nil?
+  file = Dir["#{ENV['DERIVED_DATA_PATH']}/**/Logs/Test/*.xcresult"].last
   UI.message(file)
 
   result = mackerel_post_xcresult(
