@@ -1,19 +1,33 @@
-lane :test do
+lane :post_duration do
   start_time = Time.now
 
-  post_xcresult_result = mackerel_post_xcresult(
-    api_key: ENV["MACKEREL_API_KEY"],
-    service_name: ENV["MACKEREL_SERVICE_NAME"],
-    metric_name_prefix: "xcresult",
-    file: ENV["XCRESULT_FILE_PATH"]
-  )
-  UI.message(post_xcresult_result)
+  sleep(3)
 
-  post_duration_result = mackerel_post_duration(
-    api_key: ENV["MACKEREL_API_KEY"],
-    service_name: ENV["MACKEREL_SERVICE_NAME"],
+  result = mackerel_post_duration(
+    api_key: ENV['MACKEREL_API_KEY'],
+    service_name: ENV['MACKEREL_SERVICE_NAME'],
     metric_name: "duration.#{ENV['FASTLANE_LANE_NAME']}",
     start_time: start_time
   )
-  UI.message(post_duration_result)
+  UI.message(result)
+end
+
+lane :post_xcresult do
+  scan(
+    project: 'examples/app/app.xcodeproj',
+    scheme: 'app',
+    derived_data_path: 'examples/app/build',
+    output_directory: 'examples/app/fastlane/test_output'
+  )
+
+  file = Dir["#{ENV['PWD']}/app/build/**/Logs/Test/*.xcresult"].last
+  UI.message(file)
+
+  result = mackerel_post_xcresult(
+    api_key: ENV['MACKEREL_API_KEY'],
+    service_name: ENV['MACKEREL_SERVICE_NAME'],
+    metric_name_prefix: 'xcresult',
+    file: file
+  )
+  UI.message(result)
 end
