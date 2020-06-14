@@ -20,7 +20,7 @@ lane :post_xcresult do
     output_directory: 'examples/app/fastlane/test_output'
   )
 
-  file = Dir["#{ENV['PWD']}/app/build/**/Logs/Test/*.xcresult"].last
+  file = Dir["#{ENV['PWD']}/examples/app/build/**/Logs/Test/*.xcresult"].last
   UI.message(file)
 
   result = mackerel_post_xcresult(
