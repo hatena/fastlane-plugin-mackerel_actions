@@ -1,26 +1,33 @@
 # mackerel_actions plugin
 
 [![fastlane Plugin Badge](https://rawcdn.githack.com/fastlane/fastlane/master/fastlane/assets/plugin-badge.svg)](https://rubygems.org/gems/fastlane-plugin-mackerel_actions)
+[![Test](https://github.com/yutailang0119/fastlane-plugin-mackerel_actions/workflows/Test/badge.svg)](https://github.com/yutailang0119/fastlane-plugin-mackerel_actions/actions?query=branch%3Amaster+workflow%3ATest)
 
 ## Getting Started
 
-This project is a [_fastlane_](https://github.com/fastlane/fastlane) plugin. To get started with `fastlane-plugin-mackerel_actions`, add it to your project by running:
+This project is a [_fastlane_](https://github.com/fastlane/fastlane) plugin. To get started with `fastlane-plugin-mackerel_actions`, add it to your project to Pluginfile:
 
 ```bash
-fastlane add_plugin mackerel_actions
+gem "add_plugin mackerel_actions", git: "https://github.com/yutailang0119/fastlane-plugin-mackerel_actions"
 ```
 
 ## About mackerel_actions
 
-fastlane actions for Mackerel
+fastlane actions for Mackerel.
 
-**Note to author:** Add a more detailed description about this plugin here. If your plugin contains multiple actions, make sure to mention them here.
+This actions use [yutailang0119/fastlane-plugin-mackerel_api](https://github.com/yutailang0119/fastlane-plugin-mackerel_api) to call [Mackerel API](https://mackerel.io/api-docs/).
+
+- mackerel_post_duration
+    - Posting duration minutes to Mackerel's Service Metrics.
+- mackerel_post_xcresult
+    - Posting xcresult summary to Mackerel's Service Metrics
 
 ## Example
 
-Check out the [example `Fastfile`](fastlane/Fastfile) to see how to use this plugin. Try it by cloning the repo, running `fastlane install_plugins` and `bundle exec fastlane test`.
+Check out the [example `Fastfile`](fastlane/Fastfile) to see how to use this plugin. Try it by cloning the repo, running `fastlane install_plugins` and:
 
-**Note to author:** Please set up a sample project to make it easy for users to explore what your plugin does. Provide everything that is necessary to try out the plugin in this project (including a sample Xcode/Android project if necessary)
+- `bundle exec fastlane post_duration`
+- `bundle exec fastlane post_xcresult`
 
 ## Run tests for this plugin
 
