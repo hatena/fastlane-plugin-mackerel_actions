@@ -7,11 +7,11 @@ require 'fastlane/plugin/mackerel_actions/version'
 Gem::Specification.new do |spec|
   spec.name          = 'fastlane-plugin-mackerel_actions'
   spec.version       = Fastlane::MackerelActions::VERSION
-  spec.author        = 'yutailang0119'
-  spec.email         = 'muta.yutaro@gmail.com'
+  spec.author        = 'Hatena Co., Ltd.'
+  # spec.email         = ''
 
   spec.summary       = 'fastlane actions for Mackerel'
-  spec.homepage      = "https://github.com/yutailang0119/fastlane-plugin-mackerel_actions"
+  spec.homepage      = "https://github.com/hatena/fastlane-plugin-mackerel_actions"
   spec.license       = "MIT"
 
   spec.files         = Dir["lib/**/*"] + %w(README.md LICENSE)

@@ -1,14 +1,14 @@
 # mackerel_actions plugin
 
 [![fastlane Plugin Badge](https://rawcdn.githack.com/fastlane/fastlane/master/fastlane/assets/plugin-badge.svg)](https://rubygems.org/gems/fastlane-plugin-mackerel_actions)
-[![Test](https://github.com/yutailang0119/fastlane-plugin-mackerel_actions/workflows/Test/badge.svg)](https://github.com/yutailang0119/fastlane-plugin-mackerel_actions/actions?query=branch%3Amaster+workflow%3ATest)
+[![Test](https://github.com/hatena/fastlane-plugin-mackerel_actions/workflows/Test/badge.svg)](https://github.com/hatena/fastlane-plugin-mackerel_actions/actions?query=branch%3Amaster+workflow%3ATest)
 
 ## Getting Started
 
 This project is a [_fastlane_](https://github.com/fastlane/fastlane) plugin. To get started with `fastlane-plugin-mackerel_actions`, add it to your project to Pluginfile:
 
 ```bash
-gem "add_plugin mackerel_actions", git: "https://github.com/yutailang0119/fastlane-plugin-mackerel_actions"
+gem "add_plugin mackerel_actions", git: "https://github.com/hatena/fastlane-plugin-mackerel_actions"
 ```
 
 ## About mackerel_actions
