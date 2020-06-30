@@ -8,7 +8,7 @@
 This project is a [_fastlane_](https://github.com/fastlane/fastlane) plugin. To get started with `fastlane-plugin-mackerel_actions`, add it to your project to Pluginfile:
 
 ```bash
-gem "add_plugin mackerel_actions", git: "https://github.com/hatena/fastlane-plugin-mackerel_actions"
+gem "fastlane-plugin-mackerel_actions", git: "https://github.com/hatena/fastlane-plugin-mackerel_actions"
 ```
 
 ## About mackerel_actions
