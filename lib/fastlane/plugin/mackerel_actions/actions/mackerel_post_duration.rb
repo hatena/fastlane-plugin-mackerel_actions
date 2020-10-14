@@ -25,7 +25,28 @@ module Fastlane
               "time" => now,
               "value" => duration
             }
-          ]
+          ],
+          error_handlers: {
+            403 => proc do |response|
+              UI.error("Forbidden")
+              UI.user_error!("Mackerel responded with #{response[:status]}\n---\n#{response[:body]}")
+            end,
+            404 => proc do |response|
+              UI.error("Something went wrong - I couldn\'t find it...")
+              UI.user_error!("Mackerel responded with #{response[:status]}\n---\n#{response[:body]}")
+            end,
+            429 => proc do |response|
+              UI.error("Too Many Requests")
+              UI.user_error!("Mackerel responded with #{response[:status]}\n---\n#{response[:body]}")
+            end,
+            503 => proc do |response|
+              UI.message("Mackerel is under maintenance.")
+              UI.message("Mackerel responded with #{response[:status]}\n---\n#{response[:body]}")
+            end,
+            '*' => proc do |response|
+              UI.message("Handle all error codes other")
+            end
+          }
         )
 
         UI.message(result)
